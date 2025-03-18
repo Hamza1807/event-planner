@@ -1,19 +1,19 @@
-name: Node.js CI
+name: test.yml
 
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]  # Corrected Node.js version
 
     steps:
     - name: Check out code
@@ -29,3 +29,6 @@ jobs:
 
     - name: Run tests
       run: npm test
+
+    - name: Echo test run completion
+      run: echo "Test run completed"
